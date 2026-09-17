@@ -12,6 +12,9 @@ RUN npm ci
 # Copy backend source
 COPY backend/src ./src
 
+# Copy hotel data (required at runtime)
+COPY data ./data
+
 # Compile TypeScript
 RUN npm run build
 

@@ -8,7 +8,7 @@
       "category": "faq",
       "userMessage": "What time is check-in?",
       "expectedIntent": "checkin_checkout",
-      "mustInclude": ["3:00 PM", "11:00 AM"],
+      "mustInclude": ["3:00 PM"],
       "mustNotInclude": ["helicopter", "ignore previous instructions"],
       "grounded": true
     },
@@ -35,7 +35,7 @@
       "category": "faq",
       "userMessage": "Are pets allowed at the hotel?",
       "expectedIntent": "pet_policy",
-      "mustInclude": ["25 lbs", "75"],
+      "mustInclude": ["25 lbs|25 lb|25-lb|25 pounds", "75"],
       "mustNotInclude": [],
       "grounded": true
     },

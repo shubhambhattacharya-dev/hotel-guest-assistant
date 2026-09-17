@@ -54,21 +54,23 @@ test.describe("Hotel Guest Assistant – End-to-End", () => {
       }
     });
 
-    test("should display the right sidebar with hotel facts", async ({ page }) => {
-      test.skip(
-        test.info().project.name === "Mobile Chrome",
-        "The right-side facts panel is intentionally hidden on mobile.",
-      );
-
+    test("should display the right sidebar with hotel facts on desktop and hide on mobile", async ({
+      page,
+      isMobile,
+    }) => {
       await page.goto("/");
 
       const sidebar = page.locator("aside").last();
 
-      await expect(sidebar.locator("text=Check-in")).toBeVisible();
-      await expect(sidebar.locator("text=Check-out")).toBeVisible();
-      await expect(sidebar.locator("text=Wi-Fi")).toBeVisible();
-      await expect(sidebar.locator("text=Swimming Pool")).toBeVisible();
-      await expect(sidebar.locator("text=Pet Policy")).toBeVisible();
+      if (isMobile || test.info().project.name.includes("Mobile")) {
+        await expect(sidebar).toBeHidden();
+      } else {
+        await expect(sidebar.locator("text=Check-in")).toBeVisible();
+        await expect(sidebar.locator("text=Check-out")).toBeVisible();
+        await expect(sidebar.locator("text=Wi-Fi")).toBeVisible();
+        await expect(sidebar.locator("text=Swimming Pool")).toBeVisible();
+        await expect(sidebar.locator("text=Pet Policy")).toBeVisible();
+      }
     });
   });
 
@@ -86,11 +88,10 @@ test.describe("Hotel Guest Assistant – End-to-End", () => {
         void 0;
       });
 
-      const response = await page
-        .locator("text=/3:00 PM|check-in/i")
-        .first()
-        .textContent();
-      expect(response).toBeTruthy();
+      await expect(page.getByTestId("assistant-message").first()).toContainText(
+        /3:00\s*PM|check-in/i,
+        { timeout: 15000 },
+      );
     });
 
     test("should answer 'Do you have a swimming pool?'", async ({ page }) => {
@@ -123,7 +124,7 @@ test.describe("Hotel Guest Assistant – End-to-End", () => {
       await sendChatMessage(page, "Are pets allowed?");
 
       await expect(page.getByTestId("assistant-message").first()).toContainText(
-        /pet|25.*lb|allowed/i,
+        /pet|25[\s\u202f]*(?:lbs?|pounds?)|allowed/i,
         { timeout: 15000 },
       );
     });
@@ -175,13 +176,11 @@ test.describe("Hotel Guest Assistant – End-to-End", () => {
 
       await sendChatMessage(page, "Do you have any rooms free?");
 
-      const form = page.locator(
-        'input[type="date"], input[type="number"], input[type="select"]',
-      );
-      await expect(form.first()).toBeVisible({ timeout: 10000 });
+      const form = page.getByTestId("availability-form");
+      await expect(form).toBeVisible({ timeout: 10000 });
 
       await expect(
-        page.locator("text=/check-in|check-out|guests/i").first(),
+        form.locator("text=/check-in|check-out|guests/i").first(),
       ).toBeVisible();
     });
 
@@ -276,7 +275,7 @@ test.describe("Hotel Guest Assistant – End-to-End", () => {
       await sendChatMessage(page, "And what about check-out time?");
 
       await expect(page.getByTestId("assistant-message").first()).toContainText(
-        /11:00\s*AM|11\s*AM|check-out/i,
+        /11:00[\s\u202f]*AM|11[\s\u202f]*AM|check-out/i,
         { timeout: 15000 },
       );
     });

@@ -102,9 +102,11 @@ async function runEvaluation(): Promise<void> {
       let pass = true;
       let failureReason: string | undefined;
 
-      // 1. Check mustInclude assertions
+      // 1. Check mustInclude assertions (supports pipe-separated alternatives, e.g. "25 lbs|25 lb")
       for (const expected of scenario.mustInclude) {
-        if (!contentNormalized.includes(normalize(expected))) {
+        const alternatives = expected.split("|").map((alt) => normalize(alt));
+        const matched = alternatives.some((alt) => contentNormalized.includes(alt));
+        if (!matched) {
           pass = false;
           failureReason = `Missing required substring: "${expected}"`;
           break;

@@ -326,7 +326,10 @@ function AvailabilityForm({
   };
 
   return (
-    <div className="max-w-4xl mx-auto mb-3 bg-[#f8f6f0] border border-[#d6cfbe] rounded-2xl p-4 shadow-sm">
+    <div
+      data-testid="availability-form"
+      className="max-w-4xl mx-auto mb-3 bg-[#f8f6f0] border border-[#d6cfbe] rounded-2xl p-4 shadow-sm"
+    >
       <div className="flex items-center justify-between mb-3.5">
         <div className="flex items-center gap-2.5">
           <div className="p-2 rounded-xl bg-[#ece7da] text-[#2d4941]">

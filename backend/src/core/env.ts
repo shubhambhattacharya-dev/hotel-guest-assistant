@@ -49,6 +49,12 @@ for (const envPath of ENV_CANDIDATES) {
   }
 }
 
-if (!process.env.GROQ_API_KEY && process.env.GRPQ_API_KEY) {
-  process.env.GROQ_API_KEY = process.env.GRPQ_API_KEY;
+if (process.env.GRPQ_API_KEY) {
+  console.warn(
+    "DEPRECATION WARNING: GRPQ_API_KEY is a typo. Use GROQ_API_KEY instead. " +
+    "This workaround will be removed in a future version."
+  );
+  if (!process.env.GROQ_API_KEY) {
+    process.env.GROQ_API_KEY = process.env.GRPQ_API_KEY;
+  }
 }

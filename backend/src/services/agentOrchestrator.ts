@@ -3,10 +3,7 @@ import { z } from "zod";
 
 import logger from "../core/logger.js";
 import { getHotelDataOrThrow } from "./hotelKnowledge.js";
-import {
-  AvailabilityService,
-  defaultAvailabilityProvider,
-} from "./availabilityService.js";
+import { defaultAvailabilityProvider } from "./availabilityService.js";
 import { LLM_CONFIG, geminiClient, groqClient } from "./llmClient.js";
 
 import type { HotelData, Room } from "../types/hotel.js";
@@ -84,7 +81,7 @@ const GEMINI_MODEL = LLM_CONFIG.gemini.model;
 
 const GROQ_MODEL = LLM_CONFIG.groq.model;
 
-const MAX_HISTORY_MESSAGES = 8;
+const MAX_HISTORY_MESSAGES = LLM_CONFIG.maxHistoryMessages;
 const MAX_EVIDENCE_ITEMS = 4;
 const EVIDENCE_THRESHOLD = 0.25;
 
@@ -482,6 +479,20 @@ async function withGeminiRetry<T>(
     } catch (error: unknown) {
       lastError = error;
 
+      /**
+       * A 429 (rate limit / quota exhausted) cannot succeed on a
+       * ~500 ms retry — providers ask for seconds or minutes.
+       * Rethrow immediately so the orchestrator falls through to
+       * the next provider (or fails honestly) instead of burning
+       * a doomed retry.
+       */
+      if (
+        (error as { status?: unknown } | null)?.status === 429 ||
+        (error as { name?: unknown } | null)?.name === "RateLimitError"
+      ) {
+        throw error;
+      }
+
       const isLastAttempt =
         attempt === GEMINI_MAX_RETRIES;
 
@@ -523,6 +534,14 @@ async function withGroqRetry<T>(
       return await operation();
     } catch (error: unknown) {
       lastError = error;
+
+      /** Same 429 policy as withGeminiRetry: never retry a quota error. */
+      if (
+        (error as { status?: unknown } | null)?.status === 429 ||
+        (error as { name?: unknown } | null)?.name === "RateLimitError"
+      ) {
+        throw error;
+      }
 
       const isLastAttempt = attempt === GROQ_MAX_RETRIES;
 
@@ -1363,8 +1382,8 @@ export class AgentOrchestrator {
    * Availability verbalization
    * -------------------------------------------------------
    *
-   * Gemini is preferred.
-   * Groq is fallback.
+   * Groq is preferred (primary).
+   * Gemini is fallback.
    *
    * Neither model gets permission to change the
    * deterministic result.

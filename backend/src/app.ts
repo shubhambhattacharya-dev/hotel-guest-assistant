@@ -17,17 +17,23 @@ import { metricsMiddleware, metricsRouter } from "./middleware/metrics.js";
 export function createApp() {
   const app = express();
 
-  const allowedOrigins = new Set([
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
-  ]);
+  const allowedOrigins = new Set(
+    [
+      "http://localhost:3000",
+      "http://127.0.0.1:3000",
+      ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
+    ]
+      .map((origin) => origin.trim().replace(/\/+$/, ""))
+      .filter(Boolean),
+  );
 
   app.use(
     cors({
       origin: (origin, callback) => {
         if (!origin) return callback(null, true);
         if (allowedOrigins.has(origin)) return callback(null, true);
+        // Any *.vercel.app deployment, including per-commit preview URLs
+        // (e.g. hotel-guest-assistant-git-feature-backend-*.vercel.app).
         if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) return callback(null, true);
         callback(new Error(`CORS policy: Origin ${origin} not allowed`));
       },

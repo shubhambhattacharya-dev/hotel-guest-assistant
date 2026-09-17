@@ -32,6 +32,9 @@ services:
         value: https://cloud.langfuse.com
       - key: LOG_LEVEL
         value: info
+      # Frontend origin allowed by CORS (no trailing slash).
+      - key: FRONTEND_URL
+        value: https://hotel-guest-assistant-two.vercel.app
 
   # Redis for conversation persistence (optional)
   - type: redis

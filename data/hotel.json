@@ -1,0 +1,479 @@
+{
+  "meta": {
+    "version": "1.1.0",
+    "lastUpdated": "2025-01-15",
+    "generatedFor": "concierge-chatbot + booking-engine"
+  },
+
+  "property": {
+    "id": "grand-azure",
+    "name": "The Grand Azure Hotel",
+    "description": "A luxury boutique hotel offering ocean views, exceptional dining, and tranquil amenities.",
+    "address": {
+      "line1": "100 Ocean Drive",
+      "city": "Coastal Bay",
+      "state": "CA",
+      "zip": "90210",
+      "country": "US",
+      "lat": 34.0736,
+      "lng": -118.4004
+    },
+    "contact": {
+      "phone": "+1 (555) 234-5678",
+      "email": "concierge@grandazurehotel.com"
+    },
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00",
+    "timezone": "America/Los_Angeles",
+    "currency": "USD",
+    "starRating": 4,
+    "totalRooms": 85,
+    "yearBuilt": 2018,
+    "yearRenovated": 2023,
+    "languagesSpoken": ["en", "es", "fr", "hi"],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "accessibleRooms": ["deluxe"],
+      "features": ["accessible parking", "elevator", "wheelchair available", "hearing-impaired alert devices"]
+    },
+    "transportation": {
+      "airportDistanceKm": 12,
+      "airportShuttleAvailable": true,
+      "airportShuttleFeePerNight": 25,
+      "parkingCapacity": 50
+    },
+    "paymentMethods": ["Visa", "Mastercard", "American Express", "Discover", "Cash", "UPI"],
+    "incidentalsHold": {
+      "amount": 200,
+      "currency": "USD"
+    },
+    "keywords": [
+      "hotel", "property", "grand azure", "4 star", "luxury", "boutique", "check-in", "checkin",
+      "check-out", "checkout", "arrival", "departure",
+      "contact", "address", "phone", "email", "location", "goa",
+      "cost", "price", "pricing", "rate"
+    ]
+  },
+
+  "rooms": [
+    {
+      "id": "deluxe",
+      "name": "Deluxe Room",
+      "maxOccupancy": 2,
+      "beds": [
+        { "type": "king", "count": 1 }
+      ],
+      "pricePerNight": 180,
+      "currency": "USD",
+      "sizeSqm": 28,
+      "breakfastIncluded": false,
+      "breakfastAddOnPerPersonPerDay": 20,
+      "image": "/images/deluxe-room.png",
+      "view": "ocean",
+      "description": "Ideal for couples or solo travelers with scenic views and premium bedding.",
+      "features": ["En-suite bathroom", "Smart TV", "Work desk", "High-speed Wi-Fi", "Mini-bar", "In-room safe", "Coffee station", "Balcony with ocean view"],
+      "keywords": [
+        "deluxe", "deluxe room", "room", "king", "couples",
+        "solo", "2 guests", "2 people", "double", "ocean view",
+        "classic comfort", "budget friendly", "cost", "price",
+        "pricing", "rate", "room rate"
+      ]
+    },
+    {
+      "id": "exec",
+      "name": "Executive Suite",
+      "maxOccupancy": 3,
+      "beds": [
+        { "type": "king", "count": 1 },
+        { "type": "rollaway_sofa", "count": 1 }
+      ],
+      "pricePerNight": 240,
+      "currency": "USD",
+      "sizeSqm": 42,
+      "breakfastIncluded": true,
+      "breakfastAddOnPerPersonPerDay": 0,
+      "image": "/images/executive-suite.png",
+      "view": "premium ocean",
+      "badge": "Most Popular",
+      "description": "Spacious suite designed for small groups or business travelers needing extra space.",
+      "features": ["Living area", "Nespresso machine", "Executive lounge access", "Soaking tub", "Smart TV", "Work desk", "High-speed Wi-Fi", "Mini-bar", "In-room safe", "Balcony with premium view"],
+      "keywords": [
+        "executive", "executive suite", "suite", "most popular", "popular",
+        "3 guests", "three guests", "3 people", "three people",
+        "king", "sofa bed", "business", "spacious", "premium view",
+        "ocean view", "living area", "cost", "price", "pricing",
+        "rate", "room rate"
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Family Suite",
+      "maxOccupancy": 4,
+      "beds": [
+        { "type": "king", "count": 1 },
+        { "type": "single", "count": 2 }
+      ],
+      "pricePerNight": 310,
+      "currency": "USD",
+      "sizeSqm": 58,
+      "breakfastIncluded": true,
+      "breakfastAddOnPerPersonPerDay": 0,
+      "image": "/images/family-suite.png",
+      "view": "partial ocean",
+      "description": "Generous multi-room suite tailored for families with children.",
+      "features": ["2 separate bedrooms", "Dining area", "Kids amenities", "Balcony", "Smart TV", "Work desk", "High-speed Wi-Fi", "Mini-bar", "In-room safe"],
+      "keywords": [
+        "family", "family suite", "suite", "4 guests", "four guests",
+        "4 people", "children", "kids", "2 bedrooms",
+        "ocean view", "spacious", "multi-room", "premium suite",
+        "cost", "price", "pricing", "rate", "room rate"
+      ]
+    }
+  ],
+
+  "amenities": [
+    {
+      "id": "pool",
+      "name": "Outdoor Heated Pool",
+      "type": "recreation",
+      "description": "Our heated rooftop swimming pool is open daily from 7:00 AM to 10:00 PM. Towel service and loungers are complimentary.",
+      "details": {
+        "location": "rooftop",
+        "lengthMeters": 15,
+        "heated": true,
+        "openingTime": "07:00",
+        "closingTime": "22:00",
+        "towelService": true,
+        "loungers": true,
+        "olympicSized": false,
+        "poolDepthMeters": 1.2,
+        "maxDepthMeters": 1.8
+      },
+      "keywords": ["pool", "swimming", "swim", "rooftop", "heated pool", "pool hours", "olympic", "lap pool", "pool depth"]
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness Center",
+      "type": "wellness",
+      "description": "State-of-the-art 24-hour fitness center equipped with treadmills, ellipticals, free weights, and yoga mats.",
+      "details": {
+        "open24Hours": true,
+        "equipment": ["treadmills", "ellipticals", "free weights", "yoga mats", "rowing machine", "bike"]
+      },
+      "keywords": ["fitness", "gym", "fitness center", "workout", "exercise", "weights", "yoga", "24 hour", "24/7"]
+    },
+    {
+      "id": "spa",
+      "name": "Azure Spa & Wellness",
+      "type": "wellness",
+      "description": "Full-service spa offering massages, facials, body treatments, and access to a hydrotherapy pool. Open daily from 9:00 AM to 9:00 PM.",
+      "details": {
+        "openingTime": "09:00",
+        "closingTime": "21:00",
+        "services": ["massage", "facial", "body treatment", "manicure", "pedicure"],
+        "massageTypes": ["swedish", "deep tissue", "hot stone", "aromatherapy"],
+        "bookAheadRequired": true,
+        "hydrotherapyPool": true
+      },
+      "keywords": ["spa", "wellness", "massage", "facial", "body treatment", "beauty", "relaxation", "hydrotherapy", "manicure", "pedicure"]
+    },
+    {
+      "id": "dining",
+      "name": "Azure Bistro & Bar",
+      "type": "dining",
+      "description": "Full-service restaurant serving breakfast, lunch, and dinner. Room service is available 24/7.",
+      "details": {
+        "breakfastStart": "06:30",
+        "breakfastEnd": "10:30",
+        "lunchStart": "12:00",
+        "lunchEnd": "15:00",
+        "dinnerStart": "18:00",
+        "dinnerEnd": "23:00",
+        "roomService24Hours": true,
+        "meals": ["breakfast", "lunch", "dinner"],
+        "cuisine": ["international", "seafood", "mediterranean"],
+        "dietaryAccommodations": ["vegetarian", "vegan", "gluten-free", "halal", "allergy-friendly"]
+      },
+      "keywords": ["restaurant", "dining", "food", "breakfast", "lunch", "dinner", "bar", "room service", "bistro", "cuisine", "seafood", "international", "cost", "price", "menu"]
+    },
+    {
+      "id": "wifi",
+      "name": "High-Speed Wi-Fi",
+      "type": "convenience",
+      "description": "Complimentary high-speed Wi-Fi up to 300 Mbps is available throughout all guest rooms and public areas.",
+      "details": {
+        "complimentary": true,
+        "maximumSpeedMbps": 300,
+        "coverage": ["guest rooms", "public areas"]
+      },
+      "keywords": ["wifi", "wi-fi", "internet", "internet speed", "300 mbps", "wireless"]
+    },
+    {
+      "id": "parking",
+      "name": "Valet & Self Parking",
+      "type": "convenience",
+      "description": "Valet parking is available with unlimited in-and-out privileges. Self-parking is also available.",
+      "details": {
+        "valet": { "pricePerNight": 35, "unlimitedInAndOut": true },
+        "selfParking": { "pricePerNight": 25 }
+      },
+      "keywords": ["parking", "car", "valet", "self parking", "garage", "park", "parking fee"]
+    }
+  ],
+
+  "services": [
+    {
+      "id": "concierge",
+      "name": "Concierge",
+      "description": "Our concierge desk is available 24 hours daily to assist with restaurant reservations, activity bookings, and local recommendations.",
+      "keywords": ["concierge", "24 hour", "reservations", "activities", "recommendations", "front desk", "guest services"]
+    },
+    {
+      "id": "front_desk",
+      "name": "24-Hour Front Desk",
+      "description": "The front desk is staffed 24 hours a day, 7 days a week for check-in, check-out, and assistance.",
+      "keywords": ["front desk", "24 hour", "24/7", "reception", "check-in", "checkin"]
+    },
+    {
+      "id": "business_center",
+      "name": "Business Center",
+      "description": "A quiet business center with computers, printing, and scanning services. Open 24 hours.",
+      "keywords": ["business center", "business", "printing", "scanning", "computer", "office", "meetings", "24 hour"]
+    },
+    {
+      "id": "laundry",
+      "name": "Laundry & Dry Cleaning",
+      "description": "Same-day laundry service is available for a fee. Dry cleaning is picked up and returned within 24 hours.",
+      "keywords": ["laundry", "dry cleaning", "cleaning", "service"]
+    },
+    {
+      "id": "luggage_storage",
+      "name": "Luggage Storage",
+      "description": "Secure luggage storage is available at the front desk free of charge for guests with early arrivals or late departures.",
+      "keywords": ["luggage", "bags", "storage", "baggage", "early check-in", "late check-out"]
+    },
+    {
+      "id": "bellhop",
+      "name": "Bellhop Service",
+      "description": "Complimentary bellhop service assists with your luggage during check-in and check-out.",
+      "keywords": ["bellhop", "luggage", "valet", "porter", "assistance"]
+    }
+  ],
+
+  "policies": [
+    {
+      "id": "checkin_checkout",
+      "title": "Check-In and Check-Out",
+      "policy": "Check-in begins at 3:00 PM. Check-out is by 11:00 AM. Early check-in or late check-out is subject to availability and may incur a nominal fee of $50.",
+      "rules": {
+        "checkInTime": "15:00",
+        "checkOutTime": "11:00",
+        "earlyLateFeeAmount": 50,
+        "currency": "USD",
+        "subjectToAvailability": true
+      },
+      "keywords": ["check-in", "checkin", "check-out", "checkout", "arrival", "departure", "early check-in", "late check-out"]
+    },
+    {
+      "id": "cancellation",
+      "title": "Cancellation Policy",
+      "policy": "Reservations can be canceled free of charge up to 48 hours before the arrival date. Cancellations made within 48 hours will be charged for the first night's room and tax.",
+      "rules": {
+        "freeCancellationWindowHours": 48,
+        "lateCancellationCharge": "first_night_plus_tax"
+      },
+      "keywords": ["cancellation", "cancel", "refund", "48 hours", "cancellation fee", "reservation"]
+    },
+    {
+      "id": "breakfast_inclusion",
+      "title": "Breakfast Inclusions",
+      "policy": "Continental breakfast is included with Executive and Family Suite bookings. For Deluxe Room bookings, breakfast can be added for $20 per person per day.",
+      "rules": {
+        "includedForRoomIds": ["exec", "family"],
+        "addOnForRoomIds": ["deluxe"],
+        "addOnPricePerPersonPerDay": 20,
+        "currency": "USD"
+      },
+      "keywords": ["breakfast", "included", "free breakfast", "continental breakfast", "deluxe breakfast", "executive breakfast", "family breakfast"]
+    },
+    {
+      "id": "pets",
+      "title": "Pet Policy",
+      "policy": "Pets up to 25 lbs are welcome with a one-time non-refundable cleaning fee of $75 per stay. Maximum of 2 pets per room.",
+      "rules": {
+        "allowed": true,
+        "maxWeightLbs": 25,
+        "maxPetsPerRoom": 2,
+        "cleaningFeePerStay": 75,
+        "currency": "USD",
+        "refundable": false
+      },
+      "keywords": ["pets", "pet", "dog", "cat", "animals", "25 lbs", "cleaning fee", "pet fee"]
+    },
+    {
+      "id": "smoking",
+      "title": "Smoking Policy",
+      "policy": "The Grand Azure is a 100% smoke-free property. A $250 cleaning fee applies to any smoking in guest rooms or balconies.",
+      "rules": {
+        "smokeFreeProperty": true,
+        "violationFee": 250,
+        "currency": "USD"
+      },
+      "keywords": ["smoking", "smoke", "cigarette", "tobacco", "smoke-free", "cleaning fee"]
+    },
+    {
+      "id": "payment_deposit",
+      "title": "Payment & Deposit",
+      "policy": "We accept Visa, Mastercard, American Express, Discover, Cash, and UPI. A refundable incidentals hold of $200 USD will be authorized at check-in for incidentals and released upon final inspection at check-out.",
+      "rules": {
+        "acceptedMethods": ["Visa", "Mastercard", "American Express", "Discover", "Cash", "UPI"],
+        "incidentalsHoldAmount": 200,
+        "incidentalsHoldCurrency": "USD",
+        "refundable": true
+      },
+      "keywords": ["payment", "credit card", "deposit", "hold", "incidentals", "refundable", "charge", "bill"]
+    }
+  ],
+
+  "faqs": [
+    {
+      "id": "faq_checkin",
+      "question": "What time is check-in and check-out?",
+      "answer": "Check-in begins at 3:00 PM and check-out is by 11:00 AM.",
+      "relatedPolicyId": "checkin_checkout",
+      "keywords": ["check-in", "checkin", "check-out", "checkout", "time", "arrival", "departure"]
+    },
+    {
+      "id": "faq_pool",
+      "question": "Do you have a swimming pool?",
+      "answer": "Yes, we have an outdoor heated rooftop pool open daily from 7:00 AM to 10:00 PM.",
+      "relatedAmenityId": "pool",
+      "keywords": ["pool", "swimming", "swim", "rooftop", "heated pool"]
+    },
+    {
+      "id": "faq_olympic_pool",
+      "question": "Do you have an Olympic pool?",
+      "answer": "No, we do not have an Olympic-sized pool. Our outdoor heated pool is 15 meters and designed for recreational swimming.",
+      "relatedAmenityId": "pool",
+      "keywords": ["olympic", "olympic pool", "lap pool", "pool size", "swimming pool size"]
+    },
+    {
+      "id": "faq_breakfast",
+      "question": "Is breakfast included in the room rate?",
+      "answer": "Breakfast is included complimentary for Executive and Family Suites. For Deluxe Rooms, breakfast is available for $20 per guest per day.",
+      "relatedPolicyId": "breakfast_inclusion",
+      "keywords": ["breakfast", "included", "free breakfast", "morning meal", "continental breakfast"]
+    },
+    {
+      "id": "faq_parking",
+      "question": "Is parking available on-site?",
+      "answer": "Yes, we offer valet parking for $35 per night and self-parking for $25 per night.",
+      "relatedAmenityId": "parking",
+      "keywords": ["parking", "valet", "self parking", "car", "park", "garage"]
+    },
+    {
+      "id": "faq_rooms_three",
+      "question": "What rooms are suitable for 3 people?",
+      "answer": "Our Executive Suite, with a maximum occupancy of 3, and Family Suite, with a maximum occupancy of 4, both accommodate 3 guests.",
+      "relatedRoomIds": ["exec", "family"],
+      "keywords": ["3 guests", "three guests", "3 people", "room capacity", "occupancy", "family", "executive suite"]
+    },
+    {
+      "id": "faq_cancellation",
+      "question": "What is the cancellation policy?",
+      "answer": "Reservations can be canceled free of charge up to 48 hours before the arrival date. Cancellations within 48 hours are charged for the first night's room and tax.",
+      "relatedPolicyId": "cancellation",
+      "keywords": ["cancellation", "cancel", "refund", "48 hours", "reservation"]
+    },
+    {
+      "id": "faq_pets",
+      "question": "Are pets allowed?",
+      "answer": "Yes. Pets up to 25 lbs are welcome with a one-time non-refundable cleaning fee of $75 per stay. A maximum of 2 pets is allowed per room.",
+      "relatedPolicyId": "pets",
+      "keywords": ["pets", "pet", "dog", "cat", "animals"]
+    },
+    {
+      "id": "faq_smoking",
+      "question": "Is smoking allowed?",
+      "answer": "No. The Grand Azure is a 100% smoke-free property. A $250 cleaning fee applies to smoking in guest rooms or balconies.",
+      "relatedPolicyId": "smoking",
+      "keywords": ["smoking", "smoke", "cigarette", "smoke-free"]
+    },
+    {
+      "id": "faq_wifi",
+      "question": "Is Wi-Fi available at the hotel?",
+      "answer": "Yes. Complimentary high-speed Wi-Fi up to 300 Mbps is available throughout guest rooms and public areas.",
+      "relatedAmenityId": "wifi",
+      "keywords": ["wifi", "wi-fi", "internet", "wireless", "internet speed"]
+    },
+    {
+      "id": "faq_fitness",
+      "question": "Does the hotel have a gym?",
+      "answer": "Yes. The hotel has a 24-hour fitness center with treadmills, ellipticals, free weights, and yoga mats.",
+      "relatedAmenityId": "fitness",
+      "keywords": ["gym", "fitness", "fitness center", "workout", "exercise"]
+    },
+    {
+      "id": "faq_room_service",
+      "question": "Is room service available?",
+      "answer": "Yes. Room service is available 24/7 through Azure Bistro & Bar.",
+      "relatedAmenityId": "dining",
+      "keywords": ["room service", "food delivery", "dining", "restaurant", "24/7"]
+    },
+    {
+      "id": "faq_spa",
+      "question": "Is there a spa or wellness facility?",
+      "answer": "Yes. Azure Spa & Wellness offers massages, facials, body treatments, and a hydrotherapy pool, open daily from 9:00 AM to 9:00 PM. Bookings are recommended in advance.",
+      "relatedAmenityId": "spa",
+      "keywords": ["spa", "wellness", "massage", "facial", "body treatment", "hydrotherapy"]
+    },
+    {
+      "id": "faq_dining_hours",
+      "question": "What are the restaurant hours?",
+      "answer": "Azure Bistro & Bar serves breakfast from 6:30 AM to 10:30 AM, lunch from 12:00 PM to 3:00 PM, and dinner from 6:00 PM to 11:00 PM. Room service is available 24/7.",
+      "relatedAmenityId": "dining",
+      "keywords": ["restaurant hours", "dining hours", "lunch", "dinner", "breakfast hours", "open", "close"]
+    },
+    {
+      "id": "faq_payment",
+      "question": "What payment methods do you accept?",
+      "answer": "We accept Visa, Mastercard, American Express, Discover, Cash, and UPI. A refundable incidentals hold of $200 USD is authorized at check-in and released at check-out.",
+      "relatedPolicyId": "payment_deposit",
+      "keywords": ["payment", "credit card", "deposit", "hold", "incidentals", "methods"]
+    },
+    {
+      "id": "faq_accessibility",
+      "question": "Is the hotel accessible for wheelchair users?",
+      "answer": "Yes. The property is wheelchair accessible with accessible parking, elevators, and select accessible rooms. Hearing-impaired alert devices are available upon request.",
+      "keywords": ["accessible", "wheelchair", "disability", "handicap", "accessibility", "elevator"]
+    },
+    {
+      "id": "faq_airport",
+      "question": "Is there an airport shuttle?",
+      "answer": "The hotel is 12 km from the nearest airport. Complimentary shuttle service is available for a fee of $25 per night. Valet parking is also available at $35 per night.",
+      "relatedAmenityId": "parking",
+      "keywords": ["airport", "shuttle", "transportation", "transfer", "12 km", "distance"]
+    },
+    {
+      "id": "faq_age",
+      "question": "What is the minimum age for check-in?",
+      "answer": "Guests must be at least 18 years old to check in. A valid photo ID is required at check-in.",
+      "relatedPolicyId": "checkin_checkout",
+      "keywords": ["age", "18", "id", "identification", "minimum age", "check-in", "checkin"]
+    },
+    {
+      "id": "faq_children",
+      "question": "Can children stay in the rooms?",
+      "answer": "Children of all ages are welcome. Cribs are available free of charge upon request. The Family Suite and Executive Suite can accommodate extra beds for children.",
+      "relatedRoomIds": ["exec", "family"],
+      "keywords": ["children", "kids", "crib", "baby", "child", "family", "extra bed"]
+    },
+    {
+      "id": "faq_early_checkin",
+      "question": "Can I check in early?",
+      "answer": "Early check-in is subject to availability and incurs a fee of $50 USD, confirmed on the day of arrival.",
+      "relatedPolicyId": "checkin_checkout",
+      "keywords": ["early check-in", "early", "checkin", "fee"]
+    }
+  ]
+}

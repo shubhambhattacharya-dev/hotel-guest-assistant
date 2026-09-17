@@ -1,0 +1,41 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: hotel-guest-assistant-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    plan: starter
+    region: oregon
+    branch: main
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8000
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.6-flash
+      - key: MAX_OUTPUT_TOKENS
+        value: 1024
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGFUSE_BASE_URL
+        value: https://cloud.langfuse.com
+      - key: LOG_LEVEL
+        value: info
+
+  # Redis for conversation persistence (optional)
+  - type: redis
+    name: hotel-guest-assistant-redis
+    plan: starter
+    region: oregon
+    maxmemoryPolicy: allkeys-lru

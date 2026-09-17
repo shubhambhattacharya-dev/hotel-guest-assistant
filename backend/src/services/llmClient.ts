@@ -20,22 +20,25 @@ import Groq from "groq-sdk";
 export const LLM_CONFIG = {
   gemini: {
     /**
-     * gemini-2.5-flash returns 404 ("no longer available to new users") on
-     * current API keys, so the default tracks the model the API recommends.
+     * gemini-2.0-flash is the stable production flash tier with generous free-tier limits (1,500 RPD).
      * Override with GEMINI_MODEL when the account has access to another model.
      */
     model:
       process.env.GEMINI_MODEL ??
-      "gemini-3.6-flash",
+      "gemini-2.0-flash",
 
     apiKey:
       process.env.GEMINI_API_KEY,
   },
 
   groq: {
+    /**
+     * llama-3.3-70b-versatile has significantly higher rate limits and daily token quotas on Groq.
+     * Override with GROQ_MODEL if desired.
+     */
     model:
       process.env.GROQ_MODEL ??
-      "openai/gpt-oss-120b",
+      "llama-3.3-70b-versatile",
 
     apiKey:
       process.env.GROQ_API_KEY,

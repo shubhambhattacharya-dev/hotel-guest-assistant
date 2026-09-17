@@ -90,7 +90,7 @@ const EVIDENCE_THRESHOLD = 0.25;
 
 const GEMINI_MAX_RETRIES = 1;
 const GROQ_MAX_RETRIES = 1;
-const MAX_OUTPUT_TOKENS = 512;
+const MAX_OUTPUT_TOKENS = Number(process.env.MAX_OUTPUT_TOKENS ?? 1024);
 
 /**
  * ---------------------------------------------------------
